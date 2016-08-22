@@ -1,2 +1,4 @@
+# Gem itself should not be included
+*.gem
 # JetBrains IDE
 .idea
