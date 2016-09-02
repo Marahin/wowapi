@@ -1,4 +1,4 @@
 class Wowapi
-  VERSION = '0.0.1-prealpha'
+  VERSION = '0.0.3'
 end
 

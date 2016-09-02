@@ -1,5 +1,6 @@
 require 'open-uri'
 require 'json'
+require 'pry'
 require 'wowapi/core_extensions/object/try'
 require 'wowapi/exceptions'
 require 'wowapi/version'
@@ -28,10 +29,10 @@ class Wowapi
 
   def get(path, params = {})
     res = make_request(path, params)
-    unless res.status.include?('200') && Wowapi.fail_silently
-      raise Wowapi::ApiException.new, "Did not receive status 200, but #{res.try(:status).try(:first)}."
+    if !(res.status.include?('200') or res.status.include?(200)) && ! Wowapi.fail_silently
+      raise Wowapi::ApiException.new, "Did not receive status 200, but #{res.try(:status).try(:first)} (#{res.class})."
     end
-    res
+    res.read
   end
 
   private
