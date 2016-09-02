@@ -47,11 +47,13 @@ api.guild('Argent Dawn', 'The Aspects')
 #### Guild fields
 
 * news ([pastebin](http://d.gimb.us/b/fe26c9f380477d3a0293072385e61cab.txt))
+
 ```
 irb(main):005:0> api.guild 'Argent Dawn', 'The Aspects', :news
 => {"lastModified"=>1472853622000, "name"=>"The Aspects", "realm"=>"Argent Dawn", "battlegroup"=>"Reckoning / Abrechnung", "level"=>25, "side"=>1, "achievementPoints"=>1590, "emblem"=>{"icon"=>140, "iconColor"=>"ffdfa55a", "iconColorId"=>16, "border"=>1, "borderColor"=>"fff9cc30", "borderColorId"=>16, "backgroundColor"=>"ff232323", "backgroundColorId"=>45}, "news"=>[{"type"=>"itemLoot", "character"=>"Tormenthowl", "timestamp"=>1472858400000, "itemId"=>124325, "context"=>"raid-mythic", "bonusLists"=>[1799, 1502]}, {"type"=>"itemLoot", "character"=>"Tormenthowl", "timestamp"=>1472858400000, "itemId"=>113900, "context"=>"raid-mythic", "bonusLists"=>[567]}, {"type"=>"itemLoot", "character"=>"Humbakos", "timestamp"=>1472857980000, "itemId"=>130132, "context"=>"", "bonusLists"=>[1794, 1735]}, {"type"=>"itemLoot", "character"=>"Seszel", "timestamp"=>1472854680000, "itemId"=>131799, "context"=>"", "bonusLists"=>[1794, 1735]}, {"type"=>"itemLoot", "character"=>"Kurrash", "timestamp"=>1472854500000, "itemId"=>132970, "context"=>"quest-reward", "bonusLists"=>[767, 1734]}, {"type"=>"itemLoot", "character"=>"Greenzog", "timestamp"=>1472853960000, "itemId"=>131921, "context"=>"", "bonusLists"=>[1794, 1735]}, {"type"=>"itemLoot", "character"=>"Humbakos", "timestamp"=>1472853480000, "itemId"=>121660, "context"=>"quest-reward", "bonusLists"=>[768, 1740]}, {"type"=>"itemLoot", "character"=>"Dzidu", "timestamp"=>1472853060000, "itemId"=>138418, "context"=>"", "bonusLists"=>[1794, 1735]}, $$__***<<< A LOT OF DATA ... >>>***__$$ {"type"=>"itemLoot", "character"=>"Olvarus", "timestamp"=>1472248680000, "itemId"=>109970, "context"=>"dungeon-mythic", "bonusLists"=>[43, 642, 643]}, {"type"=>"playerAchievement", "character"=>"Guldav", "timestamp"=>1472247960000, "context"=>"", "bonusLists"=>[], "achievement"=>{"id"=>13, "title"=>"Level 80", "points"=>10, "description"=>"Reach level 80.", "rewardItems"=>[], "icon"=>"achievement_level_80", "criteria"=>[{"id"=>5212, "description"=>"Reach level 80", "orderIndex"=>1, "max"=>80}], "accountWide"=>false, "factionId"=>2}}]}
 
 ```
+
 * achievements
 
 (to be filled)
