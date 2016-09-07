@@ -20,6 +20,7 @@ It gives you a pretty interface to Blizzard's Community API.
 Before you start tinkering, I suggest generating *rDOC* documentation.  
 To do so, run `rdoc` in the root directory of Wowapi. Then navigate to doc/index.html in your browser, and voila - you have your offline documentation with all methods, classes and pretty-displayed README.md. 
 
+You may also browse *ri* documentation which installs by default when you install the gem. Just type `ri Wowapi`. 
 ### Resources
 
 We have different resources for different parts of the API. Each resource can be queried with query fields.
