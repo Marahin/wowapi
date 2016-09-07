@@ -7,3 +7,4 @@
 # rDOC-generated documentation
 # run `rdoc` in order to generate .html files
 doc/
+.DS_Store
