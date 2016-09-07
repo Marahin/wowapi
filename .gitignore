@@ -1,4 +1,9 @@
 # Gem itself should not be included
 *.gem
+
 # JetBrains IDE
 .idea
+
+# rDOC-generated documentation
+# run `rdoc` in order to generate .html files
+doc/
