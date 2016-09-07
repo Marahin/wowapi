@@ -13,24 +13,23 @@ This project began during a search for an easy-to-use gem that allows to access 
 
 ## What does it do?
 
-**WoWAPI** is a library that's dependant on _open-uri_ and _json_. Both are built-in Ruby libraries. Nothing more than that, just plain Ruby.
+It gives you a pretty interface to Blizzard's Community API. 
 
 ## How do I use this?
 
-
+Before you start tinkering, I suggest generating *rDOC* documentation.  
+To do so, run `rdoc` in the root directory of Wowapi. Then navigate to doc/index.html in your browser, and voila - you have your offline documentation with all methods, classes and pretty-displayed README.md. 
 ### Guilds
 
-Guilds can take couple of arguments to query: 
-
-* news
-* achievements
-* challenge
-* members
+| Resources \/ || Query fields -> 	|       	|               	|            	|          	|
+|---------------------------------	|-------	|---------------	|------------	|----------	|
+| Guilds                          	| :news 	| :achievements 	| :challenge 	| :members 	|
+|                                 	|       	|               	|            	|          	|
+|                                 	|       	|               	|            	|          	|
 
 Each of these will expand (temporarily*) returned Hash.
  
- _* temporarily_ - in the end-stage of development I dream of having a `GuildClass` which would have a standardized structure. For now it just returns a `JSON.parse(obj)`, which is a simple `Hash`.
- Please keep in mind that I am a working student. (:
+ _* temporarily_ - see #1, #2, #3 @ ([git.3lab.re](https://git.3lab.re/marahin/wowapi/issues))
 
 ```
 require 'wowapi'
