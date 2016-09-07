@@ -1,6 +1,5 @@
 require 'open-uri'
 require 'json'
-require 'pry'
 require 'wowapi/core_extensions/object/try'
 require 'wowapi/exceptions'
 require 'wowapi/version'
