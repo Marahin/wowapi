@@ -1,8 +1,8 @@
-# A simple .try method for Object,
-# which mimics the Rails one (probably poorly)
-
 module CoreExtensions
   module Object
+    # Simple shim that adds .try(:symbol)
+    # method for Object, mimicing ActiveSupport one
+    # (probably poorly, todo: rewrite?)
     def try(method)
       begin
         self.send(method)
