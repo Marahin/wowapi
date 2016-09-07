@@ -1,5 +1,7 @@
 # WoWAPI
-**EARLY STAGE DEVELOPMENT. HERE BE DRAGONS**
+[![Gem Version](https://badge.fury.io/rb/wowapi.svg)](https://badge.fury.io/rb/wowapi)  
+
+**EARLY STAGE DEVELOPMENT. HERE BE DRAGONS**  
 However, you are welcome to contribute and/or criticise (and/or) show me the way to handle things.
  
 # What this is
