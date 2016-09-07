@@ -26,6 +26,8 @@ class Wowapi
     yield self if block_given?
   end
 
+  # Method to handle all requests, properly
+  # interpreting HTTP answer & returning it's response
   def get(path, params = {})
     res = make_request(path, params)
     if !(res.status.include?('200') or res.status.include?(200)) && ! Wowapi.fail_silently
@@ -36,6 +38,8 @@ class Wowapi
 
   private
 
+  # Making open-uri request, catching exceptions
+  # and returning data back to #get method
   def make_request(path, params)
     begin
       raise Wowapi::NoCredentialsException unless public_key
@@ -46,6 +50,8 @@ class Wowapi
     end
   end
 
+  # Returns URL for particular region
+  # or throws an exception if region is nonexistent
   def base_url
     case self.region
     when :eu
