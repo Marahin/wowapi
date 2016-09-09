@@ -60,7 +60,20 @@ Make sure your Wowapi instance contains `public_key` (and/or, if necessary - `se
 If you fail to authenticate, you will most likely step upon `Wowapi::AuthException` error. This means either your credentials are invalid, or something is wrong with Blizzard services. Nonetheless, you have a problem.
 
 ## Ruby
-Currently developed and tested only on 2.3.0, however _any_ Ruby >= 1.9.0 with _open-uri_ and _json_ support should be working properly.
+Everything >= 2.0.0 should work just fine. Below you can see a table with different MRI Ruby versions which we tested the gem on:
+
+| Ruby (MRI) | Does it work?                                   |
+|------------|-------------------------------------------------|
+| 1.9.3      | **NO**. Some flow in Object class is different. |
+| 2.0.0      | Hell **YES**.                                   |
+| 2.2.3      | Sure, **YES**.                                  |
+| 2.3.0      | Just fine, **YES**.                             |
+| 2.3.1      | **YES**, uh huh.                                |
+
+As it's early stage development, and as it's stated in the LICENSE, I do not guarantee that any other Rubies will make allow you to use this library.
+Hell, I do not guarantee _anything_.
+
+**But it should work just fine on Rubies >= 2.0.0.**
 ## Regions
 ### Region defaults to :eu!
 List of currently supported regions:
