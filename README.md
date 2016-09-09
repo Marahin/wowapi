@@ -28,11 +28,11 @@ We have different resources for different parts of the API. Each resource can be
   
 | Resource(s) 	| query fields 	|               	|            	|          	|
 |:-----------:	|:------------:	|:-------------:	|:----------:	|:--------:	|
-|    Guilds   	|     :news    	| :achievements 	| :challenge 	| :members 	|
-|             	|              	|               	|            	|          	|
-|             	|              	|               	|            	|          	| _
+|    Guild   	|     :news    	| :achievements 	| :challenge 	| :members 	|
 * temporarily_ - see #1, #2, #3 @ ([git.3lab.re](https://git.3lab.re/marahin/wowapi/issues))
 
+
+### Examples
 ```
 require 'wowapi'
 
