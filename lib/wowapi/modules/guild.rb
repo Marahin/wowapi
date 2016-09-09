@@ -6,7 +6,7 @@ class Wowapi
     # https://git.3lab.re/marahin/wowapi/issues/1
     module Guild
 
-      # GuildClass definition
+      # GuildClass - represents the Guild resource
       class GuildClass < Wowapi::ResponseData; end
 
       # Asks Blizzard API for Guild resource
@@ -16,7 +16,7 @@ class Wowapi
       # api.guild 'Argent Dawn', 'The Aspects', :members, :news, ...
       # ```
       def guild(realm, name, *args)
-        args = args.map{|n| n.to_s if n.is_a?(Symbol) }
+        args = args.map{|n| n if n.is_a?(Symbol) }
         res = get 'guild/', "#{realm}/#{name}?fields=#{args.join('%2C')}"
         Wowapi::Modules::Guild::GuildClass.new(JSON.parse(res))
       end
