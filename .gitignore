@@ -8,3 +8,5 @@
 # run `rdoc` in order to generate .html files
 doc/
 .DS_Store
+
+.ruby-version
