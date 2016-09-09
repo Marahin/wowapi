@@ -1,3 +1,8 @@
+PATH
+  remote: .
+  specs:
+    wowapi (0.0.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -13,7 +18,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler
   pry
+  wowapi!
 
 BUNDLED WITH
-   1.12.5
+   1.13.0
