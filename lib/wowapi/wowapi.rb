@@ -1,9 +1,11 @@
 require 'open-uri'
 require 'json'
 require 'wowapi/core_extensions/object/try'
+require 'wowapi/fail_silently'
 require 'wowapi/exceptions'
 require 'wowapi/version'
-require 'wowapi/modules/guild'
+require 'wowapi/response_data'
+require 'wowapi/modules'
 
 class Wowapi
   # Instance variables we keep our region, public_key and secret_key in
@@ -14,30 +16,6 @@ class Wowapi
   # World of Warcraft Community API handling
   module Modules; end
   include Wowapi::Modules::Guild
-
-  # Metaprogramming!
-  class << self
-    # Raise exceptions on error responses from API endpoint?
-    attr_accessor :fail_silently
-  end
-
-  # Defaults to false
-  @fail_silently = false
-
-
-  # Every ModuleClass inherits from this object,
-  # so GuildClass, AchievementClass etc.
-  # Data class inherits from OpenStruct which makes it easy to
-  # define arbitrary fields, using a Hash (so a default response object)
-  # http://www.ruby-doc.org/stdlib-2.0/libdoc/ostruct/rdoc/OpenStruct.html
-  class Data < OpenStruct
-    def initialize(data={})
-      unless data.is_a?(Hash)
-        raise ArgumentError, 'Data has to be passed as a Hash object.'
-      end
-      super
-    end
-  end
 
   # Creating an instance of Wowapi class
   def initialize
