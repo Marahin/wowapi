@@ -10,3 +10,7 @@ doc/
 .DS_Store
 
 .ruby-version
+
+# Gemfile.lock should not be contained in
+# Gem repository
+Gemfile.lock
