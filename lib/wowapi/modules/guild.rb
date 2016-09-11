@@ -7,17 +7,22 @@ class Wowapi
     module Guild
 
       # GuildClass - represents the Guild resource
-      class GuildClass < Wowapi::ResponseData; end
+      class GuildClass < Wowapi::ResponseData
+        def initialize(data={})
+          super
+          if @table
+            @table[:members].map!{ |player_hash|
+              Wowapi::Modules::Character::CharacterClass.new(player_hash)
+            } if @table[:members]
+          end
+        end
+      end
 
       # Asks Blizzard API for Guild resource
-      # with (any) given fields
-      # Example:
-      # ```
-      # api.guild 'Argent Dawn', 'The Aspects', :members, :news, ...
-      # ```
+      # for list of fields visit README.md
       def guild(realm, name, *args)
         args = args.map{|n| n if n.is_a?(Symbol) }
-        res = get 'guild/', "#{realm}/#{name}?fields=#{args.join('%2C')}"
+        res = get 'guild/', "#{realm}/#{name}?fields=#{args.join(',')}"
         Wowapi::Modules::Guild::GuildClass.new(JSON.parse(res))
       end
     end
