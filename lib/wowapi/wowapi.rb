@@ -1,26 +1,17 @@
 require 'open-uri'
 require 'json'
 require 'wowapi/core_extensions/object/try'
+require 'wowapi/fail_silently'
 require 'wowapi/exceptions'
 require 'wowapi/version'
-require 'wowapi/modules/guild'
+require 'wowapi/response_data'
+require 'wowapi/modules'
 
 class Wowapi
+  # Instance variables we keep our region, public_key and secret_key in
   attr_accessor :region, :public_key, :secret_key
 
-  # Wowapi::Modules is a namespace which we keep our
-  # particular methods for different parts of Blizzard's
-  # World of Warcraft Community API handling
-  module Modules; end
-  include Wowapi::Modules::Guild
-
-  class << self
-    # Raise exceptions on error responses from API endpoint?
-    attr_accessor :fail_silently
-  end
-
-  @fail_silently = false
-
+  # Creating an instance of Wowapi class
   def initialize
     self.region ||= :eu
     yield self if block_given?
