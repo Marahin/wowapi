@@ -1,5 +1,6 @@
 # WoWAPI
-[![Gem Version](https://badge.fury.io/rb/wowapi.svg)](https://badge.fury.io/rb/wowapi)  
+[![Gem Version](https://badge.fury.io/rb/wowapi.svg)](https://badge.fury.io/rb/wowapi)
+[![Build Status](https://travis-ci.org/Marahin/wowapi.svg?branch=master)](https://travis-ci.org/Marahin/wowapi)
 
 **EARLY STAGE DEVELOPMENT. HERE BE DRAGONS**  
 However, you are welcome to contribute and/or criticise (and/or) show me the way to handle things.
@@ -140,6 +141,8 @@ Keep in mind that this is completely optional, and default is **_:eu_**.
 ## Contributing
 I'm a single developer here. I'm working student. This is an introduction.
 
+### IRC
+`#wowapi` at Freenode 
 ### Bugtracking / I have a question / I have a problem
 Every problem / feature / bug / anything that concerns you should find place in Issues tab up top.
 As soon as you get your answer, the issue will also be labeled. 
