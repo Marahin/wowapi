@@ -3,11 +3,13 @@ rvm:
   - 2.0.0
   - 2.2.3
   - 2.3.0
+script:
+  - bundle install
+  - gem build wowapi.gemspec
 notifications:
   email: true
   irc:
     on_success: change
     on_failure: always
     channels:
-      - "irc.freenode.org#3lab"
-      
+      - "irc.freenode.org#wowapi"
