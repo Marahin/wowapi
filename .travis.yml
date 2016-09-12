@@ -1,0 +1,13 @@
+language: ruby
+rvm:
+  - 2.0.0
+  - 2.2.3
+  - 2.3.0
+notifications:
+  email: true
+  irc:
+    on_success: change
+    on_failure: always
+    channels:
+      - "irc.freenode.org#3lab"
+      
