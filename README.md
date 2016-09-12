@@ -1,6 +1,7 @@
 # WoWAPI
 [![Gem Version](https://badge.fury.io/rb/wowapi.svg)](https://badge.fury.io/rb/wowapi)
 [![Build Status](https://travis-ci.org/Marahin/wowapi.svg?branch=master)](https://travis-ci.org/Marahin/wowapi)
+[![Code Climate](https://codeclimate.com/github/Marahin/wowapi/badges/gpa.svg)](https://codeclimate.com/github/Marahin/wowapi)  
 
 **EARLY STAGE DEVELOPMENT. HERE BE DRAGONS**  
 However, you are welcome to contribute and/or criticise (and/or) show me the way to handle things.
