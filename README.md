@@ -70,6 +70,8 @@ Every resource is called as a method on `Wowapi` Object.
 #### Rails
 * Create initializer called `wowapi.rb` in your Rails app's `config/initializers` directory,
 * fill it with following:
+
+
 ```
 require 'wowapi'
 
@@ -91,6 +93,7 @@ Now, in any controller / view you can do:
 
 * controllers/pages_controller.rb
 
+  
 ```
 class PagesController < ApplicationController
   def index
@@ -102,6 +105,7 @@ end
 
 * in views:
 
+  
 ```
 @news.last(7).each do |news|
     ... 
@@ -175,13 +179,16 @@ List of currently supported regions:
 - Europe (**_:eu_**)
 - United States (**_:us_**)
 
-API region can be changed by passing proper symbol to the configuration, example:
+API region can be changed by passing proper symbol:
 
 ```
-api = Wowapi.new do |config|
-  config.region = :us
-  ...
-end
+## Change through Wowapi class variable,
+Wowapi.region = :us
+
+## Change through Wowapi object
+myvar = Wowapi.new{ |c| ... }
+myvar.region = :us
+
 ```
 
 Keep in mind that this is completely optional, and default is **_:eu_**.
