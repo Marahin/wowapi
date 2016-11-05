@@ -63,16 +63,60 @@ Every resource is called as a method on `Wowapi` Object.
 | Resource(s) 	| query fields 	|               	|            	|          	|
 |:-----------:	|:------------:	|:-------------:	|:----------:	|:--------:	|
 |    .guild   	|     :news    	| :achievements 	| :challenge 	| :members 	|
-|    .character |
+|    .character |    :avatar    |
 
 ### Examples
+
+#### Rails
+* Create initializer called `wowapi.rb` in your Rails app's `config/initializers` directory,
+* fill it with following:
+```
+require 'wowapi'
+
+## Set region (defaults to :eu)
+## Wowapi.region = :us
+
+## Create Api variable usable ANYWHERE in your Rails app
+::Api = Wowapi.new do |config|
+  config.public_key = 'your-public-apikey'
+  ## config.secret_key = 'your-secret-key'
+end
+
+## Create your Guild name variable, usually GuildName or GuildNameApi that holds information about your guild.  
+## ::YourGuildName = Api.guild('Realm', 'Guild name', :field1, :field2)
+::Aspects = Api.guild('Argent Dawn', 'The Aspects', :members, :news)
+```
+
+Now, in any controller / view you can do:
+
+* controllers/pages_controller.rb
+
+```
+class PagesController < ApplicationController
+  def index
+    @news = Aspects.news
+  end
+end
+
+```
+
+* in views:
+
+```
+@news.last(7).each do |news|
+    ... 
+end
+```
+
+
+#### Plain ruby
+You can use simple variables. For more advanced usage with global variables and namespaces, see above (Rails usage).
 ```
 require 'wowapi'
 
 api = Wowapi.new do |config|
   config.public_key   = 'your-public-apikey'
   # config.secret_Key = 'optional-secret-key'
-  # config.region     = :us # (optional)
 end
 
 # returns guild profile
