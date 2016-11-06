@@ -32,23 +32,23 @@ It gives you a pretty interface to Blizzard's Community API.
  And everything should work just fine. For a list of compatible (tested) Rubies, see 'Support' at the bottom.
 #### Download & build yourself
  You can also build it from scratch.
- ** clone the repo:
+ * clone the repo:
  ```
  git clone https://git.3lab.re/marahin/wowapi.git
  ```
- ** enter the directory:
+ * enter the directory:
  ```
  cd wowapi
  ```
- ** run bundler, so you have everything you need already:
+ * run bundler, so you have everything you need already:
  ```
  bundle install
  ```
- ** build gem:
+ * build gem:
  ```
  gem build wowapi.gemspec
  ```
- ** if build passes, install it from your local environment:
+ * if build passes, install it from your local environment:
  ```
  gem install --local wowapi**.gem
  ```
@@ -93,8 +93,8 @@ In different words, **special fields contain A PROCESSED BLIZZARD RESPONSE**. Th
 ### Examples
 
 #### Rails
-** Create initializer called `wowapi.rb` in your Rails app's `config/initializers` directory,
-** fill it with following:
+* Create initializer called `wowapi.rb` in your Rails app's `config/initializers` directory,
+* fill it with following:
 
 
 ```
@@ -116,7 +116,7 @@ end
 
 Now, in any controller / view you can do:
 
-** controllers/pages_controller.rb
+* controllers/pages_controller.rb
 
   
 ```
@@ -128,7 +128,7 @@ end
 
 ```
 
-** in views:
+* in views:
 
   
 ```
