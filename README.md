@@ -32,44 +32,69 @@ It gives you a pretty interface to Blizzard's Community API.
  And everything should work just fine. For a list of compatible (tested) Rubies, see 'Support' at the bottom.
 #### Download & build yourself
  You can also build it from scratch.
- * clone the repo:
+ ** clone the repo:
  ```
  git clone https://git.3lab.re/marahin/wowapi.git
  ```
- * enter the directory:
+ ** enter the directory:
  ```
  cd wowapi
  ```
- * run bundler, so you have everything you need already:
+ ** run bundler, so you have everything you need already:
  ```
  bundle install
  ```
- * build gem:
+ ** build gem:
  ```
  gem build wowapi.gemspec
  ```
- * if build passes, install it from your local environment:
+ ** if build passes, install it from your local environment:
  ```
- gem install --local wowapi*.gem
+ gem install --local wowapi**.gem
  ```
-### Resources
+### Resources, query fields and fields
 
-<< DUE TO FAST DEVELOPMENT CYCLE THIS PART OF DOCUMENTATION IS LACKING. >>  
+**<< DUE TO FAST DEVELOPMENT CYCLE THIS PART OF DOCUMENTATION IS LACKING. >>**  
 
-We have different resources for different parts of the API. Each resource can be queried with query fields.
+We have different **resources** for different parts of the API. Each **resource** can be queried with **query fields**, and after being queried, object has **fields**.
 
-Every resource is called as a method on `Wowapi` Object.  
+Every **resource** is called as a method on `Wowapi` Object. Please note that resource is **not** a field.
+**Query field** can be defined as "what do we exactly want to know about the resource". See following example:
+  
+  
+```
+api.guild('Argent Dawn', 'The Aspects') ## this returns only basic Guild info (guild resource with no query fields)
+
+api.guild('Argent Dawn', 'The Aspects', :news, :members) ## whereas this returns guild info AND members array (guild resource with :members, :news query fields)
+```
+
+In above example we passed `:news` and `:members` **query fields** for the Guild **resource**. However, `:members` is a special example, because **not only this is a query field, but also a special field**.  
+**Special field** is a **field** that is additionally processed. See, in case of `:members` Blizzard returns JSON array that contains some Character data (an array of Characters that are members of the Guild). However, Wowapi is so cool that every record inside becomes a `CharacterClass` object.
+In different words, **special fields contain A PROCESSED BLIZZARD RESPONSE**. These are enhanced and can be managed Ruby-way.
+
+**SPECIAL FIELD DOESN'T NECESSARILY HAVE TO BE A QUERY FIELD. SEE `.avatar` ON `CharacterClass`**
+**SPECIAL FIELDS ARE MENTIONED ONLY BECAUSE PART OF THE API IS NOT YET FULLY COVERED. SOME "FIELDS" THAT ARE NOT _SPECIAL_ MAY CONTAIN RAW JSON RESPONSE.**  
+
+#### Query fields table
 
 | Resource(s) 	| query fields 	|               	|            	|          	|
 |:-----------:	|:------------:	|:-------------:	|:----------:	|:--------:	|
 |    .guild   	|     :news    	| :achievements 	| :challenge 	| :members 	|
-|    .character |    :avatar    |
+|    .character |
+
+#### Special fields table
+
+|    Resource   |     field     | special field?| description                                                   |
+| :-----------: | :-----------: | :-----------: | :-----------:                                                 |
+|     guild     |  .members     |     yes       |Becomes array of `CharacterClass` objects                      |
+|   character   |  .avatar      |     yes       |Returns ready-to-render link for avatar image of the character.|
+
 
 ### Examples
 
 #### Rails
-* Create initializer called `wowapi.rb` in your Rails app's `config/initializers` directory,
-* fill it with following:
+** Create initializer called `wowapi.rb` in your Rails app's `config/initializers` directory,
+** fill it with following:
 
 
 ```
@@ -91,7 +116,7 @@ end
 
 Now, in any controller / view you can do:
 
-* controllers/pages_controller.rb
+** controllers/pages_controller.rb
 
   
 ```
@@ -103,7 +128,7 @@ end
 
 ```
 
-* in views:
+** in views:
 
   
 ```
@@ -166,10 +191,10 @@ As it's early stage development, and as it's stated in the LICENSE, I do not gua
 Hell, I do not guarantee _anything_.
 
 ## Documentation
-Before you start tinkering, I suggest generating *rDOC* documentation.  
+Before you start tinkering, I suggest generating **rDOC** documentation.  
 To do so, run `rdoc` in the root directory of Wowapi. Then navigate to doc/index.html in your browser, and voila - you have your offline documentation with all methods, classes and pretty-displayed README.md. 
 
-You may also browse *ri* documentation which installs by default when you install the gem. Just type `ri Wowapi`. 
+You may also browse **ri** documentation which installs by default when you install the gem. Just type `ri Wowapi`. 
 
 **But it should work just fine on Rubies >= 2.0.0.**
 
