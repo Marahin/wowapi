@@ -4,7 +4,7 @@
 [![Code Climate](https://codeclimate.com/github/Marahin/wowapi/badges/gpa.svg)](https://codeclimate.com/github/Marahin/wowapi)
 [![Dependency Status](https://gemnasium.com/badges/github.com/Marahin/wowapi.svg)](https://gemnasium.com/github.com/Marahin/wowapi)
 [![security](https://hakiri.io/github/Marahin/wowapi/master.svg)](https://hakiri.io/github/Marahin/wowapi/master)
-[![Inline docs](http://inch-ci.org/github/Marahin/wowapi.svg?branch=master)](http://inch-ci.org/github/Marahin/wowapi)
+[![Inline docs](https://inch-ci.org/github/Marahin/wowapi.svg?branch=master)](https://inch-ci.org/github/Marahin/wowapi)
 
 **EARLY STAGE DEVELOPMENT. HERE BE DRAGONS**  
 However, you are welcome to contribute and/or criticise (and/or) show me the way to handle things.
@@ -52,6 +52,8 @@ It gives you a pretty interface to Blizzard's Community API.
  ```
  gem install --local wowapi**.gem
  ```
+ 
+  
 ### Resources, query fields and fields
 
 **<< DUE TO FAST DEVELOPMENT CYCLE THIS PART OF DOCUMENTATION IS LACKING. >>**  
