@@ -15,4 +15,4 @@ notifications:
     on_success: change
     on_failure: always
     channels:
-      - "irc.freenode.org#wowapi"
+      - "chat.freenode.net#wowapi"
