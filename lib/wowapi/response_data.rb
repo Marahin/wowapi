@@ -1,3 +1,5 @@
+require 'json'
+
 class Wowapi
   # Every ModuleClass inherits from this object,
   # so GuildClass, AchievementClass etc.
@@ -16,11 +18,16 @@ class Wowapi
       super
     end
 
-    # Override default .to_json method
-    # this one returns raw data that was assigned
-    # during initialization
+    # Return raw data (retrieved by Blizzard servers)
     def to_json
-      @raw
+      @raw.to_json
+    end
+
+    # Create a object of suitable class e.g.:
+    # guild = api.guild ...
+    # guild = guild.from_json(data)
+    def from_json(data)
+      self.class.new(JSON.parse(data))
     end
   end
 end
