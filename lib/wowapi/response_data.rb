@@ -14,13 +14,12 @@ class Wowapi
       unless data.is_a?(Hash)
         raise ArgumentError, 'Data has to be passed as a Hash object.'
       end
-      @raw = data # Assign raw data to @raw instance variable
       super
     end
 
     # Return raw data (retrieved by Blizzard servers)
-    def to_json
-      @raw.to_json
+    def to_json(*options)
+      as_json(*options).to_json(*options)
     end
 
     # Create a object of suitable class e.g.:
@@ -28,6 +27,12 @@ class Wowapi
     # guild = guild.from_json(data)
     def from_json(data)
       self.class.new(JSON.parse(data))
+    end
+
+    protected
+
+    def as_json(options={})
+      @table
     end
   end
 end
