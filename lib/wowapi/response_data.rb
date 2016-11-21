@@ -29,8 +29,6 @@ class Wowapi
       self.class.new(JSON.parse(data))
     end
 
-    protected
-
     def as_json(options={})
       @table
     end
