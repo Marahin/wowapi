@@ -5,24 +5,10 @@ class Wowapi
     module Character
       # todo: issue-13
       class CharacterClass < Wowapi::ResponseData
-        def initialize(res)
-          super
-
-          # Likely requires refactoring. This reassigns unsufficient thumbnail address
-          # returned by World of Warcraft API and sets it to proper thumbnail URL
-          # that you can use to download / display image from Blizzards' servers
-          if @table
-            if @table.key?(:character) && @table[:character].key?('thumbnail')
-              @table[:character]['thumbnail'] = "http://render-api-#{Wowapi.region}.worldofwarcraft.com/static-render/#{Wowapi.region}/#{@table[:character]['thumbnail']}"
-            elsif @table.key?(:thumbnail)
-              @table[:thumbnail] = "http://render-api-#{Wowapi.region}.worldofwarcraft.com/static-render/#{Wowapi.region}/#{@table[:thumbnail]}"
-            end
-          end
-        end
-
         ## Character avatar image
         def avatar
-          @table[:character]['thumbnail']
+          _url = @table[:character]['thumbnail'] || @table[:thumbnail]
+          _url ? ("http://render-api-#{Wowapi.region}.worldofwarcraft.com/static-render/#{Wowapi.region}/#{_url}") : (nil)
         end
       end
 
