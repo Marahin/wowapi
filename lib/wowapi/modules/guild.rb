@@ -8,13 +8,16 @@ class Wowapi
 
       # GuildClass - represents the Guild resource
       class GuildClass < Wowapi::ResponseData
-        def initialize(data={})
-          super
-          if @table
-            @table[:members].map!{ |player_hash|
-              Wowapi::Modules::Character::CharacterClass.new(player_hash)
-            } if @table[:members]
-          end
+
+        # This _MIGHT_ require refactorization
+        # tested with 588 members with no hickups,
+        # but potentially unoptimal
+        # (perhaps we should store it in memory
+        # as instance variable?)
+        def members
+          @table[:members].map{ |player_hash|
+            Wowapi::Modules::Character::CharacterClass.new(player_hash)
+          } if @table[:members]
         end
       end
 
