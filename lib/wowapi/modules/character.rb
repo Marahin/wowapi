@@ -5,10 +5,10 @@ class Wowapi
     module Character
       # todo: issue-13
       class CharacterClass < Wowapi::ResponseData
-        ## Character avatar image
-        def avatar
+        ## Character avatar image. Pass .avatar(https: true) for HTTPS link.
+        def avatar(opts = {})
           _url = @table[:character]['thumbnail'] || @table[:thumbnail]
-          _url ? ("http://render-api-#{Wowapi.region}.worldofwarcraft.com/static-render/#{Wowapi.region}/#{_url}") : (nil)
+          _url ? ("http#{'s' if opts[:https]}://render-api-#{Wowapi.region}.worldofwarcraft.com/static-render/#{Wowapi.region}/#{_url}") : (nil)
         end
       end
 
